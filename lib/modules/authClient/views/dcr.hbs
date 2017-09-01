@@ -1,0 +1,105 @@
+<div class="container theme-showcase" role="main">
+    <div class="page-header">
+        <h1>Dynamic Client Registration</h1>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <form class="form-horizontal" action="/client/dcr" method="post" novalidate>
+                <input type="hidden" name="req_id" value={{req_id}}>
+                <div class="form-group {{#if errors.name}}has-error{{/if}}">
+                    <label for="inputClientName" class="col-sm-2 control-label">Client Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="clientName" value="{{values.name}}" class="form-control" id="inputClientName" placeholder="Client Name" aria-describedby="helpBlockClientName">
+                        {{#if errors.name}}
+                            <span id="helpBlockClientName" class="help-block">{{errors.name}}</span>
+                        {{/if}}
+                    </div>
+                </div>
+                <div class="form-group {{#if errors.uri}}has-error{{/if}}">
+                    <label for="inputClientUri" class="col-sm-2 control-label">Client URI</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="clientUri" value="{{values.uri}}" class="form-control" id="inputClientUri" placeholder="Client URI" aria-describedby="helpBlockClientUri">
+                        {{#if errors.uri}}
+                            <span id="helpBlockClientUri" class="help-block">{{errors.uri}}</span>
+                        {{/if}}
+                    </div>
+                </div>
+                <div class="form-group {{#if errors.redirects}}has-error{{/if}}">
+                    <label for="inputRedirectUris" class="col-sm-2 control-label">Redirect URIs</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="redirectUris" value="{{values.redirects}}" class="form-control" id="inputRedirectUris" placeholder="Redirect URIs" aria-describedby="helpBlockRedirectUris">
+                        {{#if errors.redirects}}
+                            <span id="helpBlockRedirectUris" class="help-block">{{errors.redirects}}</span>
+                        {{/if}}
+                    </div>
+                </div>
+                <div class="form-group {{#if errors.grants}}has-error{{/if}}">
+                    <label for="inputGrantTypes" class="col-sm-2 control-label">Grant Types</label>
+                    <div class="col-sm-10">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" value="authorizationCode">
+                                Authorization Code
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" value="clientCredentials">
+                                Client Credentials
+                            </label>
+                        </div>
+                        {{#if errors.grants}}
+                            <span id="helpBlockGrantTypes" class="help-block">{{errors.grants}}</span>
+                        {{/if}}
+                    </div>
+                </div>
+                <div class="form-group {{#if errors.tokenauth}}has-error{{/if}}">
+                    <label for="inputTokenEndpointAuth" class="col-sm-2 control-label">Token Endpoint Auth</label>
+                    <div class="col-sm-10">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="optionsRadios" id="optionsRadios1" value="clientSecretBasic" checked>
+                                Client Secret Basic
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="optionsRadios" id="optionsRadios2" value="clientSecretPost">
+                                Client Secret Post
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="optionsRadios" id="optionsRadios2" value="clientSecretJwt">
+                                Client Secret JWT
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="optionsRadios" id="optionsRadios2" value="privateKeyJwt">
+                                Private Key JWT
+                            </label>
+                        </div>
+                        {{#if errors.tokenauth}}
+                            <span id="helpBlockGrantTypes" class="help-block">{{errors.tokenauth}}</span>
+                        {{/if}}
+                    </div>
+                </div>
+                <div class="form-group {{#if errors.scope}}has-error{{/if}}">
+                    <label for="inputScope" class="col-sm-2 control-label">Scope</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="scope" value="{{values.scope}}" class="form-control" id="inputScope" placeholder="Scope" aria-describedby="helpBlockScope">
+                        {{#if errors.scope}}
+                            <span id="helpBlockScope" class="help-block">{{errors.scope}}</span>
+                        {{/if}}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-default">Register</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

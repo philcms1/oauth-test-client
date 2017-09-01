@@ -1,0 +1,50 @@
+<div class="container theme-showcase" role="main">
+    <div class="page-header">
+        <h1>List Clients</h1>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Client ID</th>
+                    <th>Client Secret</th>
+                    <th>Redirect URIs</th>
+                    <th>Scope</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {{#each clients}}
+                    <tr>
+                        <td>{{client_id}}</td>
+                        <td>{{client_secret}}</td>
+                        <td>{{redirect_uris}}</td>
+                        <td>{{scope}}</td>
+                        <td>
+                            <div class="btn-group" role="group" aria-label="...">
+                                <button type="button" class="btn btn-default">
+                                    <span class="glyphicon glyphicon-pencil"></span>
+                                </button>
+                                <a class="btn btn-large btn-info" href="/ui/client/{{client_id}}/delete">
+                                    <span class="glyphicon glyphicon-remove icon-danger"></span>
+                                </a>
+                                <a class="btn btn-large btn-info" href="/ui/client/{{client_id}}/{{#if active}}deactivate{{else}}activate{{/if}}">
+                                    {{#if active}}
+                                        <span class="glyphicon glyphicon-off icon-success"></span>
+                                    {{else}}
+                                        <span class="glyphicon glyphicon-off"></span>
+                                    {{/if}}
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
+            <p>
+                <a class="btn btn-large btn-info" href="/ui/addclient">Add</a>
+            </p>
+        </div>
+    </div>
+</div>

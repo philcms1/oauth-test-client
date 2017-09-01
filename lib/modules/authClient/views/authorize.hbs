@@ -1,0 +1,31 @@
+<div class="container theme-showcase" role="main">
+    <div class="page-header">
+        <h1>Approve this client?</h1>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <form class="form" action="/ui/approve" method="POST">
+                <p>
+                    <b>ID: </b>{{client.client_id}}
+                    <br/>
+                    <b>Redirect URI: </b>{{redirect_uri}}
+                </p>
+
+                <input type="hidden" name="req_id" value={{req_id}}>
+                {{#if client.scope}}
+                    <p><b>Scopes:</b></p>
+                    {{#each client.scope}}
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="{{this}}" checked>
+                                {{this}}
+                            </label>
+                        </div>
+                    {{/each}}
+                {{/if}}
+                <input type="submit" class="btn btn-success" name="decision" value="approve">
+                <input type="submit" class="btn btn-danger" name="decision" value="deny">
+            </form>
+        </div>
+    </div>
+</div>

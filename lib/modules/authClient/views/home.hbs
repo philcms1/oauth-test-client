@@ -1,0 +1,34 @@
+<div class="container theme-showcase" role="main">
+    <div class="jumbotron">
+        <h1>OAuth2 Test Client</h1>
+        <p>Hapi.js based Oauth2 client.</p>
+        {{#if user}}
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">User Information</h3>
+                        </div>
+                        <div class="panel-body">
+                            Username: {{user.username}}
+                        </div>
+                    </div>
+                </div><!-- /.col-sm-4 -->
+            </div>
+        {{/if}}
+        {{#if client}}
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="panel panel-danger">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Client Information</h3>
+                        </div>
+                        <div class="panel-body">
+                            <b>Client ID:</b> {{client.id}}
+                        </div>
+                    </div>
+                </div><!-- /.col-sm-4 -->
+            </div>
+        {{/if}}
+    </div>
+</div>
