@@ -1,71 +1,49 @@
-const Glue = require('glue');
+const program = require('commander');
+const inquirer = require('inquirer');
+const Joi = require('joi');
 
-const Manifest = {
-    server: {},
-    connections: [{
-        port: process.env.PORT || 9000,
-        labels: ["client"]
-    }],
-    registrations: [
-        {
-            plugin: {
-                register: "good",
-                options: {
-                    reporters: {
-                        console: [
-                            {
-                                module: "good-squeeze",
-                                name: "Squeeze",
-                                args: [{
-                                    log: "*",
-                                    request: "*",
-                                    response: ["oauth2-*", "ui-*"]
-                                }]
-                            },
-                            {
-                                module: "good-console"
-                            },
-                            "stdout"
-                        ]
-                    }
-                }
-            }
-        },
-        {
-            plugin: "vision"
-        },
-        {
-            plugin: "inert"
-        },
-        {
-            plugin: "lout"
-        },
-        {
-            plugin: "hapi-auth-cookie"
-        },
-        {
-            plugin: "./lib/modules/authClient/index",
-            options: {
-                select: ["client"],
-                routes: {
-                    prefix: "/client"
-                }
-            }
-        }
+program
+    .version('0.0.1')
+    .option('-c, --clients', 'Load JSON file containing clients information')
+    .parse(process.argv);
+
+const clientNameSchema = {
+
+};
+
+let clientMethodPrompt = {
+    type: 'list',
+    name: 'clientMethod',
+    message: 'How do you want to load the client?',
+    choices: [
+        'Dynamic client registration',
+        'Enter client information'
     ]
 };
 
-const options = { relativeTo: __dirname };
+let dcr = () => {
+    inquirer.prompt([
+        {
+            type: 'input',
+            name: 'client.name',
+            message: 'Human-readable display name for the client',
+            validate: (input, answers) => {
+                console.log('input: ' + input);
+                // console.log(answers);
+                const result = Joi.validate({name: input}, Joi.string().min(10).max(50));
+                return result.error;
 
-Glue.compose(Manifest, options, (err, server) => {
-    if (err) {
-        throw err;
-    }
-
-    server.start((error) => {
-        if (error) {
-            throw error;
+            }
         }
-        console.log(`Server started...`);
-    });
+    ]).then(answers => {
+        console.log(answers);
+    })
+};
+
+inquirer.prompt(clientMethodPrompt).then(function (answers) {
+    // console.log(JSON.stringify(answers, null, '  '));
+    let {clientMethod} = answers;
+    if (clientMethod === 'Dynamic client registration') {
+        dcr();
+    }
 });
