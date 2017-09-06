@@ -27,12 +27,10 @@ let dcr = () => {
             type: 'input',
             name: 'client.name',
             message: 'Human-readable display name for the client',
-            validate: (input, answers) => {
+            validate: (input) => {
                 console.log('input: ' + input);
-                // console.log(answers);
-                const result = Joi.validate({name: input}, Joi.string().min(10).max(50));
-                return result.error;
-
+                const result = Joi.validate(input, Joi.string().min(10).max(50));
+                return result.error ? 'Client name must be between 10 and 50 characters' : true;
             }
         }
     ]).then(answers => {
