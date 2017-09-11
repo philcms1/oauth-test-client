@@ -6,43 +6,49 @@
         <div class="col-md-12">
             <form class="form-horizontal" action="/client/dcr" method="post" novalidate>
                 <input type="hidden" name="req_id" value={{req_id}}>
-                <div class="form-group {{#if errors.name}}has-error{{/if}}">
+                <div class="form-group {{#if errors.client_name}}has-error{{/if}}">
                     <label for="inputClientName" class="col-sm-2 control-label"><span class="text-danger">*</span> Client Name</label>
                     <div class="col-sm-10">
-                        <input type="text" name="client_name" value="{{values.name}}" class="form-control" id="inputClientName"
+                        <input type="text" name="client_name" value="{{values.client_name}}" class="form-control" id="inputClientName"
                                placeholder="Human-readable display name for the client" aria-describedby="helpBlockClientName">
-                        {{#if errors.name}}
-                            <span id="helpBlockClientName" class="help-block">{{errors.name}}</span>
+                        {{#if errors.client_name}}
+                            <span id="helpBlockClientName" class="help-block">{{errors.client_name}}</span>
                         {{/if}}
                     </div>
                 </div>
-                <div class="form-group {{#if errors.uri}}has-error{{/if}}">
+                <div class="form-group {{#if errors.client_uri}}has-error{{/if}}">
                     <label for="inputClientUri" class="col-sm-2 control-label">Client URI</label>
                     <div class="col-sm-10">
-                        <input type="text" name="client_uri" value="{{values.uri}}" class="form-control" id="inputClientUri"
+                        <input type="text" name="client_uri" value="{{values.client_uri}}" class="form-control" id="inputClientUri"
                                placeholder="A URI that indicates the client's homepage" aria-describedby="helpBlockClientUri">
-                        {{#if errors.uri}}
-                            <span id="helpBlockClientUri" class="help-block">{{errors.uri}}</span>
+                        {{#if errors.client_uri}}
+                            <span id="helpBlockClientUri" class="help-block">{{errors.client_uri}}</span>
                         {{/if}}
                     </div>
                 </div>
-                <div class="form-group {{#if errors.redirects}}has-error{{/if}}">
+                <div class="form-group {{#if errors.redirect_uris}}has-error{{/if}}">
                     <label for="inputRedirectUris" class="col-sm-2 control-label"><span class="text-danger">*</span> Redirect URIs</label>
                     <div class="col-sm-10">
-                        <input type="text" name="redirect_uris" value="{{values.redirects}}" class="form-control" id="inputRedirectUris"
-                               placeholder="An array of URI strings" aria-describedby="helpBlockRedirectUris">
-                        {{#if errors.redirects}}
-                            <span id="helpBlockRedirectUris" class="help-block">{{errors.redirects}}</span>
+                        <input type="text" name="redirect_uris" value="{{values.redirect_uris}}" class="form-control" id="inputRedirectUris"
+                               placeholder="List of comma separated URI strings" aria-describedby="helpBlockRedirectUris">
+                        {{#if errors.redirect_uris}}
+                            <span id="helpBlockRedirectUris" class="help-block">{{errors.redirect_uris}}</span>
                         {{/if}}
                     </div>
                 </div>
-                <div class="form-group {{#if errors.grants}}has-error{{/if}}">
+                <div class="form-group {{#if errors.grant_types}}has-error{{/if}}">
                     <label for="inputGrantTypes" class="col-sm-2 control-label"><span class="text-danger">*</span> Grant Types</label>
                     <div class="col-sm-10">
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" name="grant_types" value="authorization_code">
+                                <input type="checkbox" name="grant_types" value="authorization_code" checked>
                                 Authorization Code
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="grant_types" value="implicit">
+                                Implicit
                             </label>
                         </div>
                         <div class="checkbox">
@@ -57,8 +63,28 @@
                                 Refresh Token
                             </label>
                         </div>
-                        {{#if errors.grants}}
-                            <span id="helpBlockGrantTypes" class="help-block">{{errors.grants}}</span>
+                        {{#if errors.grant_types}}
+                            <span id="helpBlockGrantTypes" class="help-block">{{errors.grant_types}}</span>
+                        {{/if}}
+                    </div>
+                </div>
+                <div class="form-group {{#if errors.response_type}}has-error{{/if}}">
+                    <label for="inputResponseTypes" class="col-sm-2 control-label"><span class="text-danger">*</span> Response Types</label>
+                    <div class="col-sm-10">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="response_type" id="optionsRadios1" value="code" checked>
+                                Code
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="response_type" id="optionsRadios2" value="token">
+                                Token
+                            </label>
+                        </div>
+                        {{#if errors.response_type}}
+                            <span id="helpBlockResponseTypes" class="help-block">{{errors.response_type}}</span>
                         {{/if}}
                     </div>
                 </div>
@@ -77,7 +103,7 @@
                                 Client Secret Post
                             </label>
                         </div>
-                        <div class="radio">
+                        <!--<div class="radio">
                             <label>
                                 <input type="radio" name="token_endpoint_auth_method" id="optionsRadios3" value="client_secret_jwt">
                                 Client Secret JWT
@@ -88,7 +114,7 @@
                                 <input type="radio" name="token_endpoint_auth_method" id="optionsRadios4" value="private_key_jwt">
                                 Private Key JWT
                             </label>
-                        </div>
+                        </div>-->
                         {{#if errors.tokenauth}}
                             <span id="helpBlockGrantTypes" class="help-block">{{errors.tokenauth}}</span>
                         {{/if}}
