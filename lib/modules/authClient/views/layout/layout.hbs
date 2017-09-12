@@ -24,7 +24,8 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="/client/dcr">DCR</a></li>
+                <li><a href="/client/home">Home</a></li>
+                <li><a href="/client/dcr">DCR</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 {{#if user}}
@@ -42,5 +43,10 @@
 
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('a[href="' + this.location.pathname + '"]').parent().addClass('active');
+    });
+</script>
 </body>
 </html>
