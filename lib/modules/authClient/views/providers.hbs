@@ -1,0 +1,43 @@
+<div class="container theme-showcase" role="main">
+    <div class="page-header">
+        <h1>Available Providers</h1>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Provider Name</th>
+                    <th>Authorization Endpoint</th>
+                    <th>Token Endpoint</th>
+                    <th>Revocation Endpoint</th>
+                    <th>Registration Endpoint</th>
+                    <th>User Info Endpoint</th>
+                </tr>
+                </thead>
+                <tbody>
+                {{#each providers}}
+                    <tr>
+                        <td>{{provider_name}}</td>
+                        <td>{{authorization_endpoint}}</td>
+                        <td>{{token_endpoint}}</td>
+                        <td>{{revocation_endpoint}}</td>
+                        <td>{{registration_endpoint}}</td>
+                        <td>{{userinfo_endpoint}}</td>
+                        <td>
+                            <div class="btn-group" role="group" aria-label="...">
+                                <a class="btn btn-large btn-info" href="/client/token/{{client_id}}">
+                                    <span class="glyphicon glyphicon-arrow-right"></span>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
+            <p>
+                <a class="btn btn-large btn-info" href="/client/addprovider">Add</a>
+            </p>
+        </div>
+    </div>
+</div>

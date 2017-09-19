@@ -1,6 +1,6 @@
 <div class="container theme-showcase" role="main">
     <div class="page-header">
-        <h1>List Clients</h1>
+        <h1>Available Clients</h1>
     </div>
     <div class="row">
         <div class="col-md-12">
@@ -9,6 +9,7 @@
                 <tr>
                     <th>Client ID</th>
                     <th>Client Secret</th>
+                    <th>Client Name</th>
                     <th>Redirect URIs</th>
                     <th>Scope</th>
                     <th>Actions</th>
@@ -19,22 +20,16 @@
                     <tr>
                         <td>{{client_id}}</td>
                         <td>{{client_secret}}</td>
+                        <td>{{client_name}}</td>
                         <td>{{redirect_uris}}</td>
                         <td>{{scope}}</td>
                         <td>
                             <div class="btn-group" role="group" aria-label="...">
-                                <button type="button" class="btn btn-default">
-                                    <span class="glyphicon glyphicon-pencil"></span>
-                                </button>
-                                <a class="btn btn-large btn-info" href="/ui/client/{{client_id}}/delete">
-                                    <span class="glyphicon glyphicon-remove icon-danger"></span>
-                                </a>
-                                <a class="btn btn-large btn-info" href="/ui/client/{{client_id}}/{{#if active}}deactivate{{else}}activate{{/if}}">
-                                    {{#if active}}
-                                        <span class="glyphicon glyphicon-off icon-success"></span>
-                                    {{else}}
-                                        <span class="glyphicon glyphicon-off"></span>
-                                    {{/if}}
+                                <!--<button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Use this client">
+                                    <span class="glyphicon glyphicon-arrow-right"></span>
+                                </button>-->
+                                <a class="btn btn-large btn-info" href="/client/token/{{client_id}}">
+                                    <span class="glyphicon glyphicon-arrow-right"></span>
                                 </a>
                             </div>
                         </td>
@@ -43,7 +38,7 @@
                 </tbody>
             </table>
             <p>
-                <a class="btn btn-large btn-info" href="/ui/addclient">Add</a>
+                <a class="btn btn-large btn-info" href="/client/addclient">Add</a>
             </p>
         </div>
     </div>

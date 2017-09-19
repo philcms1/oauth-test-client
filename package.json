@@ -23,7 +23,10 @@
     "jsrsasign": "^8.0.3",
     "lodash": "^4.17.4",
     "lout": "^10.0.2",
+    "mongodb": "^2.2.31",
+    "mongoose": "^4.11.11",
     "randomstring": "^1.1.5",
+    "tv": "^6.1.0",
     "vision": "^4.1.1",
     "wreck": "^12.2.2"
   }

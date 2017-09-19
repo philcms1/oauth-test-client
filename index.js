@@ -41,6 +41,9 @@ const Manifest = {
             plugin: "lout"
         },
         {
+            plugin: "tv"
+        },
+        {
             plugin: "hapi-auth-cookie"
         },
         {

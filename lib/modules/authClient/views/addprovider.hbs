@@ -1,0 +1,77 @@
+<div class="container theme-showcase" role="main">
+    <div class="page-header">
+        <h1>Add Provider</h1>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <form class="form-horizontal" action="/client/provider" method="post" novalidate>
+                <input type="hidden" name="req_id" value={{req_id}}>
+                <div class="form-group {{#if errors.provider_name}}has-error{{/if}}">
+                    <label for="inputProviderName" class="col-sm-2 control-label"><span class="text-danger">*</span> Client Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="provider_name" value="{{values.provider_name}}" class="form-control" id="inputProviderName"
+                               placeholder="Human-readable display name for the provider" aria-describedby="helpBlockProviderName">
+                        {{#if errors.provider_name}}
+                            <span id="helpBlockProviderName" class="help-block">{{errors.provider_name}}</span>
+                        {{/if}}
+                    </div>
+                </div>
+                <div class="form-group {{#if errors.auth_uri}}has-error{{/if}}">
+                    <label for="inputAuthUri" class="col-sm-2 control-label"><span class="text-danger">*</span> Authorization Endpoint</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="auth_uri" value="{{values.auth_uri}}" class="form-control" id="inputAuthUri"
+                               placeholder="URI to authorize a client" aria-describedby="helpBlockAuthUri">
+                        {{#if errors.auth_uri}}
+                            <span id="helpBlockAuthUri" class="help-block">{{errors.auth_uri}}</span>
+                        {{/if}}
+                    </div>
+                </div>
+                <div class="form-group {{#if errors.token_uri}}has-error{{/if}}">
+                    <label for="inputTokenUri" class="col-sm-2 control-label"><span class="text-danger">*</span> Token Endpoint</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="token_uri" value="{{values.token_uri}}" class="form-control" id="inputTokenUri"
+                               placeholder="URI to obtain a token" aria-describedby="helpBlockTokenUri">
+                        {{#if errors.token_uri}}
+                            <span id="helpBlockTokenUri" class="help-block">{{errors.token_uri}}</span>
+                        {{/if}}
+                    </div>
+                </div>
+                <div class="form-group {{#if errors.revoke_uri}}has-error{{/if}}">
+                    <label for="inputRevokeUri" class="col-sm-2 control-label">Revocation Endpoint</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="revoke_uri" value="{{values.revoke_uri}}" class="form-control" id="inputRevokeUri"
+                               placeholder="URI to revoke a client" aria-describedby="helpBlockRevokeUri">
+                        {{#if errors.revoke_uri}}
+                            <span id="helpBlockRevokeUri" class="help-block">{{errors.revoke_uri}}</span>
+                        {{/if}}
+                    </div>
+                </div>
+                <div class="form-group {{#if errors.reg_uri}}has-error{{/if}}">
+                    <label for="inputRegUri" class="col-sm-2 control-label">Registration Endpoint</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="reg_uri" value="{{values.reg_uri}}" class="form-control" id="inputRegUri"
+                               placeholder="URI to register a client" aria-describedby="helpBlockRegUri">
+                        {{#if errors.reg_uri}}
+                            <span id="helpBlockRegUri" class="help-block">{{errors.reg_uri}}</span>
+                        {{/if}}
+                    </div>
+                </div>
+                <div class="form-group {{#if errors.info_uri}}has-error{{/if}}">
+                    <label for="inputInfoUri" class="col-sm-2 control-label">User Info Endpoint</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="info_uri" value="{{values.info_uri}}" class="form-control" id="inputInfoUri"
+                               placeholder="URI to obtain client information" aria-describedby="helpBlockInfoUri">
+                        {{#if errors.info_uri}}
+                            <span id="helpBlockInfoUri" class="help-block">{{errors.info_uri}}</span>
+                        {{/if}}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-default">Save</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
