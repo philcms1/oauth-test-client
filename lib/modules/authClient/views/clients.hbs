@@ -25,12 +25,12 @@
                         <td>{{scope}}</td>
                         <td>
                             <div class="btn-group" role="group" aria-label="...">
-                                <!--<button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Use this client">
-                                    <span class="glyphicon glyphicon-arrow-right"></span>
-                                </button>-->
-                                <a class="btn btn-large btn-info" href="/client/token/{{client_id}}">
-                                    <span class="glyphicon glyphicon-arrow-right"></span>
-                                </a>
+                                <form action="/client/set_client" method="post">
+                                    <input type="hidden" name="client_id" value={{client_id}}>
+                                    <button type="submit" name="set_client" value="your_value" class="btn-link">
+                                        <span class="glyphicon glyphicon-arrow-right"></span>
+                                    </button>
+                                </form>
                             </div>
                         </td>
                     </tr>

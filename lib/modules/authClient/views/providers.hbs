@@ -26,9 +26,12 @@
                         <td>{{userinfo_endpoint}}</td>
                         <td>
                             <div class="btn-group" role="group" aria-label="...">
-                                <a class="btn btn-large btn-info" href="/client/token/{{client_id}}">
-                                    <span class="glyphicon glyphicon-arrow-right"></span>
-                                </a>
+                                <form action="/client/set_provider" method="post">
+                                    <input type="hidden" name="provider_name" value={{provider_name}}>
+                                    <button type="submit" name="set_provider" value="your_value" class="btn-link">
+                                        <span class="glyphicon glyphicon-arrow-right"></span>
+                                    </button>
+                                </form>
                             </div>
                         </td>
                     </tr>

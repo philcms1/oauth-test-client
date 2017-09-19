@@ -25,6 +25,8 @@
     "lout": "^10.0.2",
     "mongodb": "^2.2.31",
     "mongoose": "^4.11.11",
+    "qs": "^6.5.1",
+    "querystring": "^0.2.0",
     "randomstring": "^1.1.5",
     "tv": "^6.1.0",
     "vision": "^4.1.1",

@@ -4,7 +4,7 @@
     </div>
     <div class="row">
         <div class="col-md-12">
-            <form class="form-horizontal" action="/client/provider" method="post" novalidate>
+            <form class="form-horizontal" action="/client/addprovider" method="post" novalidate>
                 <input type="hidden" name="req_id" value={{req_id}}>
                 <div class="form-group {{#if errors.provider_name}}has-error{{/if}}">
                     <label for="inputProviderName" class="col-sm-2 control-label"><span class="text-danger">*</span> Client Name</label>
@@ -16,53 +16,53 @@
                         {{/if}}
                     </div>
                 </div>
-                <div class="form-group {{#if errors.auth_uri}}has-error{{/if}}">
+                <div class="form-group {{#if errors.authorization_endpoint}}has-error{{/if}}">
                     <label for="inputAuthUri" class="col-sm-2 control-label"><span class="text-danger">*</span> Authorization Endpoint</label>
                     <div class="col-sm-10">
-                        <input type="text" name="auth_uri" value="{{values.auth_uri}}" class="form-control" id="inputAuthUri"
+                        <input type="text" name="authorization_endpoint" value="{{values.authorization_endpoint}}" class="form-control" id="inputAuthUri"
                                placeholder="URI to authorize a client" aria-describedby="helpBlockAuthUri">
-                        {{#if errors.auth_uri}}
-                            <span id="helpBlockAuthUri" class="help-block">{{errors.auth_uri}}</span>
+                        {{#if errors.authorization_endpoint}}
+                            <span id="helpBlockAuthUri" class="help-block">{{errors.authorization_endpoint}}</span>
                         {{/if}}
                     </div>
                 </div>
-                <div class="form-group {{#if errors.token_uri}}has-error{{/if}}">
+                <div class="form-group {{#if errors.token_endpoint}}has-error{{/if}}">
                     <label for="inputTokenUri" class="col-sm-2 control-label"><span class="text-danger">*</span> Token Endpoint</label>
                     <div class="col-sm-10">
-                        <input type="text" name="token_uri" value="{{values.token_uri}}" class="form-control" id="inputTokenUri"
+                        <input type="text" name="token_endpoint" value="{{values.token_endpoint}}" class="form-control" id="inputTokenUri"
                                placeholder="URI to obtain a token" aria-describedby="helpBlockTokenUri">
-                        {{#if errors.token_uri}}
-                            <span id="helpBlockTokenUri" class="help-block">{{errors.token_uri}}</span>
+                        {{#if errors.token_endpoint}}
+                            <span id="helpBlockTokenUri" class="help-block">{{errors.token_endpoint}}</span>
                         {{/if}}
                     </div>
                 </div>
-                <div class="form-group {{#if errors.revoke_uri}}has-error{{/if}}">
+                <div class="form-group {{#if errors.revocation_endpoint}}has-error{{/if}}">
                     <label for="inputRevokeUri" class="col-sm-2 control-label">Revocation Endpoint</label>
                     <div class="col-sm-10">
-                        <input type="text" name="revoke_uri" value="{{values.revoke_uri}}" class="form-control" id="inputRevokeUri"
-                               placeholder="URI to revoke a client" aria-describedby="helpBlockRevokeUri">
-                        {{#if errors.revoke_uri}}
-                            <span id="helpBlockRevokeUri" class="help-block">{{errors.revoke_uri}}</span>
+                        <input type="text" name="revocation_endpoint" value="{{values.revocation_endpoint}}" class="form-control" id="inputRevokeUri"
+                               placeholder="URI to revoke a token" aria-describedby="helpBlockRevokeUri">
+                        {{#if errors.revocation_endpoint}}
+                            <span id="helpBlockRevokeUri" class="help-block">{{errors.revocation_endpoint}}</span>
                         {{/if}}
                     </div>
                 </div>
-                <div class="form-group {{#if errors.reg_uri}}has-error{{/if}}">
+                <div class="form-group {{#if errors.registration_endpoint}}has-error{{/if}}">
                     <label for="inputRegUri" class="col-sm-2 control-label">Registration Endpoint</label>
                     <div class="col-sm-10">
-                        <input type="text" name="reg_uri" value="{{values.reg_uri}}" class="form-control" id="inputRegUri"
+                        <input type="text" name="registration_endpoint" value="{{values.registration_endpoint}}" class="form-control" id="inputRegUri"
                                placeholder="URI to register a client" aria-describedby="helpBlockRegUri">
-                        {{#if errors.reg_uri}}
-                            <span id="helpBlockRegUri" class="help-block">{{errors.reg_uri}}</span>
+                        {{#if errors.registration_endpoint}}
+                            <span id="helpBlockRegUri" class="help-block">{{errors.registration_endpoint}}</span>
                         {{/if}}
                     </div>
                 </div>
-                <div class="form-group {{#if errors.info_uri}}has-error{{/if}}">
+                <div class="form-group {{#if errors.userinfo_endpoint}}has-error{{/if}}">
                     <label for="inputInfoUri" class="col-sm-2 control-label">User Info Endpoint</label>
                     <div class="col-sm-10">
-                        <input type="text" name="info_uri" value="{{values.info_uri}}" class="form-control" id="inputInfoUri"
+                        <input type="text" name="userinfo_endpoint" value="{{values.userinfo_endpoint}}" class="form-control" id="inputInfoUri"
                                placeholder="URI to obtain client information" aria-describedby="helpBlockInfoUri">
-                        {{#if errors.info_uri}}
-                            <span id="helpBlockInfoUri" class="help-block">{{errors.info_uri}}</span>
+                        {{#if errors.userinfo_endpoint}}
+                            <span id="helpBlockInfoUri" class="help-block">{{errors.userinfo_endpoint}}</span>
                         {{/if}}
                     </div>
                 </div>
