@@ -47,6 +47,12 @@ const Manifest = {
             plugin: "hapi-auth-cookie"
         },
         {
+            plugin: {
+                register: "./lib/modules/caching/index",
+                options: {}
+            }
+        },
+        {
             plugin: "./lib/modules/authClient/index",
             options: {
                 select: ["client"],

@@ -1,48 +1,54 @@
 <div class="container theme-showcase" role="main">
     <div class="jumbotron">
         <h3>OAuth 2.0 Dashboard</h3>
-        {{#if provider}}
+
             <div class="row">
-                <div class="panel panel-success">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Active Provider Information</h3>
-                    </div>
-                    {{#each provider}}
-                        <div class="panel-body">
-                            <b>{{@key}}:</b> {{this}}
+                {{#if provider}}
+                    <div class="col-sm-4">
+                        <div class="panel panel-success">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Active Provider Information</h3>
+                            </div>
+                            {{#each provider}}
+                                <div class="panel-body">
+                                    <b>{{@key}}:</b> {{this}}
+                                </div>
+                            {{/each}}
                         </div>
-                    {{/each}}
-                </div>
-            </div>
-        {{/if}}
-        {{#if client}}
-            <div class="row">
-                <div class="panel panel-info">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Active Client Information</h3>
                     </div>
-                    {{#each client}}
-                        <div class="panel-body">
-                            <b>{{@key}}:</b> {{this}}
+                {{/if}}
+                {{#if client}}
+                    <div class="col-sm-4">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Active Client Information</h3>
+                            </div>
+                            {{#each client}}
+                                <div class="panel-body">
+                                    <b>{{@key}}:</b> {{this}}
+                                </div>
+                            {{/each}}
                         </div>
-                    {{/each}}
-                </div>
-            </div>
-        {{/if}}
-        {{#if token}}
-            <div class="row">
-                <div class="panel panel-warning">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Token Information</h3>
                     </div>
-                    {{#each token}}
-                        <div class="panel-body">
-                            <b>{{@key}}:</b> {{this}}
+                {{/if}}
+                {{#if token}}
+                    <div class="col-sm-4">
+                        <div class="panel panel-warning">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Token Information</h3>
+                            </div>
+                            {{#each token}}
+                                <div class="panel-body">
+                                    <b>{{@key}}:</b> {{this}}
+                                </div>
+                            {{/each}}
                         </div>
-                    {{/each}}
-                </div>
+                    </div>
+                {{/if}}
             </div>
-        {{/if}}
+
+
+
         {{#if client}}
             <div class="row">
                 <div class="btn-group" role="group" aria-label="...">
