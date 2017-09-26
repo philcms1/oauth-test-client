@@ -1,0 +1,39 @@
+<div class="container theme-showcase" role="main">
+    <div class="page-header">
+        <h1>Available Tokens</h1>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th class="col-md-3">Access Token</th>
+                    <th class="col-md-3">Token Type</th>
+                    <th class="col-md-3">State</th>
+                    <th class="col-md-3">Scope</th>
+                </tr>
+                </thead>
+                <tbody>
+                {{#each tokens}}
+                    <tr>
+                        <td class="hideOverflow">{{access_token}}</td>
+                        <td>{{token_type}}</td>
+                        <td>{{state}}</td>
+                        <td>{{scope}}</td>
+                        <td>
+                            <div class="btn-group" role="group" aria-label="...">
+                                <form action="/client/set_token" method="post">
+                                    <input type="hidden" name="token_id" value={{_id}}>
+                                    <button type="submit" name="set_client" value="your_value" class="btn-link">
+                                        <span class="glyphicon glyphicon-arrow-right"></span>
+                                    </button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
