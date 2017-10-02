@@ -7,7 +7,7 @@
             <form class="form-horizontal" action="/client/addprovider" method="post" novalidate>
                 <input type="hidden" name="req_id" value={{req_id}}>
                 <div class="form-group {{#if errors.provider_name}}has-error{{/if}}">
-                    <label for="inputProviderName" class="col-sm-2 control-label"><span class="text-danger">*</span> Client Name</label>
+                    <label for="inputProviderName" class="col-sm-2 control-label"><span class="text-danger">*</span> Provider Name</label>
                     <div class="col-sm-10">
                         <input type="text" name="provider_name" value="{{values.provider_name}}" class="form-control" id="inputProviderName"
                                placeholder="Human-readable display name for the provider" aria-describedby="helpBlockProviderName">
