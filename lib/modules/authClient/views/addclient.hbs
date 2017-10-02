@@ -1,0 +1,140 @@
+<div class="container theme-showcase" role="main">
+    <div class="page-header">
+        <h1>Add Client</h1>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <form class="form-horizontal" action="/client/addclient" method="post" novalidate>
+                <input type="hidden" name="req_id" value={{req_id}}>
+                <div class="form-group {{#if errors.client_id}}has-error{{/if}}">
+                    <label for="inputClientId" class="col-sm-2 control-label"><span class="text-danger">*</span> Client ID</label>
+                    <div class="col-sm-10">
+                        <input name="client_id" value="{{values.client_id}}" class="form-control" id="inputClientId"
+                               placeholder="Client ID" aria-describedby="helpBlockClientId">
+                        {{#if errors.client_id}}
+                            <span id="helpBlockClientId" class="help-block">{{errors.client_id}}</span>
+                        {{/if}}
+                    </div>
+                </div>
+                <div class="form-group {{#if errors.client_secret}}has-error{{/if}}">
+                    <label for="inputClientSecret" class="col-sm-2 control-label"><span class="text-danger">*</span> Client Secret</label>
+                    <div class="col-sm-10">
+                        <input name="client_secret" value="{{values.client_secret}}" class="form-control" id="inputClientSecret"
+                               placeholder="Client Secret" aria-describedby="helpBlockSecret">
+                        {{#if errors.client_secret}}
+                            <span id="helpBlockSecret" class="help-block">{{errors.client_secret}}</span>
+                        {{/if}}
+                    </div>
+                </div>
+                <div class="form-group {{#if errors.client_description}}has-error{{/if}}">
+                    <label for="inputClientDescription" class="col-sm-2 control-label">Client Description</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="client_description" value="{{values.client_description}}" class="form-control" id="inputClientDescription"
+                               placeholder="Human-readable display description for the client" aria-describedby="helpBlockClientDescription">
+                        {{#if errors.client_description}}
+                            <span id="helpBlockClientDescription" class="help-block">{{errors.client_description}}</span>
+                        {{/if}}
+                    </div>
+                </div>
+                <div class="form-group {{#if errors.redirect_uris}}has-error{{/if}}">
+                    <label for="inputRedirectUris" class="col-sm-2 control-label"><span class="text-danger">*</span> Redirect URIs</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="redirect_uris" value="{{values.redirect_uris}}" class="form-control" id="inputRedirectUris"
+                               placeholder="List of comma separated URI strings" aria-describedby="helpBlockRedirectUris">
+                        {{#if errors.redirect_uris}}
+                            <span id="helpBlockRedirectUris" class="help-block">{{errors.redirect_uris}}</span>
+                        {{/if}}
+                    </div>
+                </div>
+                <div class="form-group {{#if errors.grant_types}}has-error{{/if}}">
+                    <label for="inputGrantTypes" class="col-sm-2 control-label"><span class="text-danger">*</span> Grant Types</label>
+                    <div class="col-sm-10">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="grant_types" value="authorization_code" checked>
+                                Authorization Code
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="grant_types" value="implicit">
+                                Implicit
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="grant_types" value="client_credentials">
+                                Client Credentials
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="grant_types" value="refresh_token">
+                                Refresh Token
+                            </label>
+                        </div>
+                        {{#if errors.grant_types}}
+                            <span id="helpBlockGrantTypes" class="help-block">{{errors.grant_types}}</span>
+                        {{/if}}
+                    </div>
+                </div>
+                <div class="form-group {{#if errors.response_type}}has-error{{/if}}">
+                    <label for="inputResponseTypes" class="col-sm-2 control-label"><span class="text-danger">*</span> Response Types</label>
+                    <div class="col-sm-10">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="response_type" id="optionsRadios1" value="code" checked>
+                                Code
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="response_type" id="optionsRadios2" value="token">
+                                Token
+                            </label>
+                        </div>
+                        {{#if errors.response_type}}
+                            <span id="helpBlockResponseTypes" class="help-block">{{errors.response_type}}</span>
+                        {{/if}}
+                    </div>
+                </div>
+                <div class="form-group {{#if errors.tokenauth}}has-error{{/if}}">
+                    <label for="inputTokenEndpointAuth" class="col-sm-2 control-label"><span class="text-danger">*</span> Token Endpoint Authentication</label>
+                    <div class="col-sm-10">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="token_endpoint_auth_method" id="optionsRadios1" value="client_secret_basic" checked>
+                                Client Secret Basic
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="token_endpoint_auth_method" id="optionsRadios2" value="client_secret_post">
+                                Client Secret Post
+                            </label>
+                        </div>
+                        {{#if errors.tokenauth}}
+                            <span id="helpBlockGrantTypes" class="help-block">{{errors.tokenauth}}</span>
+                        {{/if}}
+                    </div>
+                </div>
+                <div class="form-group {{#if errors.scope}}has-error{{/if}}">
+                    <label for="inputScope" class="col-sm-2 control-label">Scope</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="scope" value="{{values.scope}}" class="form-control" id="inputScope"
+                               placeholder="String of space-separated values" aria-describedby="helpBlockScope">
+                        {{#if errors.scope}}
+                            <span id="helpBlockScope" class="help-block">{{errors.scope}}</span>
+                        {{/if}}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-default">Register</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
